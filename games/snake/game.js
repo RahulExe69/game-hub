@@ -94,6 +94,8 @@
       ctx.beginPath(); ctx.moveTo(0, j * CELL); ctx.lineTo(canvas.width, j * CELL); ctx.stroke();
     }
 
+    if (!food || !snake) return; // not started yet
+
     // Food
     ctx.font = `${CELL * 0.8}px serif`;
     ctx.textAlign = 'center';
