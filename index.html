@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎮 Game Hub</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">🎮</span>
+        <span class="logo-text">Game Hub</span>
+      </div>
+      <p class="header-tagline">10 Classic Games &mdash; All in One Place</p>
+    </div>
+  </header>
+
+  <main class="hub-main">
+    <div class="games-grid" id="gamesGrid">
+
+      <div class="game-card" data-game="snake">
+        <div class="card-icon">🐍</div>
+        <div class="card-body">
+          <h3 class="card-title">Snake</h3>
+          <p class="card-desc">Navigate the snake, eat food, and grow without hitting walls or yourself!</p>
+          <div class="card-tags"><span class="tag">Arrow Keys</span><span class="tag">Swipe</span></div>
+        </div>
+        <a href="games/snake/index.html" class="btn-play">Play Now</a>
+      </div>
+
+      <div class="game-card" data-game="tictactoe">
+        <div class="card-icon">❌</div>
+        <div class="card-body">
+          <h3 class="card-title">Tic-Tac-Toe</h3>
+          <p class="card-desc">Challenge the AI in a classic 3×3 grid battle of X's and O's!</p>
+          <div class="card-tags"><span class="tag">Click / Tap</span><span class="tag">vs AI</span></div>
+        </div>
+        <a href="games/tictactoe/index.html" class="btn-play">Play Now</a>
+      </div>
+
+      <div class="game-card" data-game="memory">
+        <div class="card-icon">🃏</div>
+        <div class="card-body">
+          <h3 class="card-title">Memory Match</h3>
+          <p class="card-desc">Flip cards and find all matching pairs as fast as possible!</p>
+          <div class="card-tags"><span class="tag">Click / Tap</span><span class="tag">4×4 Grid</span></div>
+        </div>
+        <a href="games/memory/index.html" class="btn-play">Play Now</a>
+      </div>
+
+      <div class="game-card" data-game="2048">
+        <div class="card-icon">🔢</div>
+        <div class="card-body">
+          <h3 class="card-title">2048</h3>
+          <p class="card-desc">Slide and merge tiles to reach 2048. Simple to learn, hard to master!</p>
+          <div class="card-tags"><span class="tag">Arrow Keys</span><span class="tag">Swipe</span></div>
+        </div>
+        <a href="games/2048/index.html" class="btn-play">Play Now</a>
+      </div>
+
+      <div class="game-card" data-game="flappy">
+        <div class="card-icon">🐦</div>
+        <div class="card-body">
+          <h3 class="card-title">Flappy Bird</h3>
+          <p class="card-desc">Tap to flap! Fly through pipes and see how far you can go!</p>
+          <div class="card-tags"><span class="tag">Tap / Space</span><span class="tag">Canvas</span></div>
+        </div>
+        <a href="games/flappy/index.html" class="btn-play">Play Now</a>
+      </div>
+
+      <div class="game-card" data-game="breakout">
+        <div class="card-icon">🧱</div>
+        <div class="card-body">
+          <h3 class="card-title">Brick Breaker</h3>
+          <p class="card-desc">Bounce the ball, break all the bricks, and rack up points!</p>
+          <div class="card-tags"><span class="tag">Mouse / Touch</span><span class="tag">Canvas</span></div>
+        </div>
+        <a href="games/breakout/index.html" class="btn-play">Play Now</a>
+      </div>
+
+      <div class="game-card" data-game="whackamole">
+        <div class="card-icon">🔨</div>
+        <div class="card-body">
+          <h3 class="card-title">Whack-a-Mole</h3>
+          <p class="card-desc">Moles are popping up! Whack as many as you can in 30 seconds!</p>
+          <div class="card-tags"><span class="tag">Click / Tap</span><span class="tag">Timed</span></div>
+        </div>
+        <a href="games/whackamole/index.html" class="btn-play">Play Now</a>
+      </div>
+
+      <div class="game-card" data-game="tetris">
+        <div class="card-icon">🟦</div>
+        <div class="card-body">
+          <h3 class="card-title">Tetris</h3>
+          <p class="card-desc">Stack falling blocks, clear lines, and beat the high score!</p>
+          <div class="card-tags"><span class="tag">Arrow Keys</span><span class="tag">Canvas</span></div>
+        </div>
+        <a href="games/tetris/index.html" class="btn-play">Play Now</a>
+      </div>
+
+      <div class="game-card" data-game="pong">
+        <div class="card-icon">🏓</div>
+        <div class="card-body">
+          <h3 class="card-title">Pong</h3>
+          <p class="card-desc">Classic paddle battle! First to 7 points wins. Play against the AI!</p>
+          <div class="card-tags"><span class="tag">Arrow / W-S</span><span class="tag">vs AI</span></div>
+        </div>
+        <a href="games/pong/index.html" class="btn-play">Play Now</a>
+      </div>
+
+      <div class="game-card" data-game="minesweeper">
+        <div class="card-icon">💣</div>
+        <div class="card-body">
+          <h3 class="card-title">Minesweeper</h3>
+          <p class="card-desc">Reveal safe cells, flag the mines, and don't blow up!</p>
+          <div class="card-tags"><span class="tag">Click / Flag</span><span class="tag">Puzzle</span></div>
+        </div>
+        <a href="games/minesweeper/index.html" class="btn-play">Play Now</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>🎮 Game Hub &mdash; Built with pure HTML, CSS &amp; JavaScript &mdash; No dependencies</p>
+    <p class="footer-sub">10 Classic Games &bull; Mobile Friendly &bull; Instant Play</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

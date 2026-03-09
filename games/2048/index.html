@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🔢 2048 – Game Hub</title>
+  <link rel="stylesheet" href="../../css/style.css"/>
+  <style>
+    .board-2048 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      background: #0a0a22;
+      padding: 10px;
+      border-radius: 12px;
+      width: min(340px, 88vw);
+      border: 2px solid var(--border);
+      box-shadow: 0 0 30px rgba(157,78,221,0.2);
+    }
+    .tile {
+      aspect-ratio: 1;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(1rem, 4vw, 1.6rem);
+      font-weight: 900;
+      transition: background 0.1s, transform 0.1s;
+      background: #1a1a35;
+      color: transparent;
+      user-select: none;
+    }
+    .tile.new { animation: tileAppear 0.15s ease both; }
+    @keyframes tileAppear {
+      from { transform: scale(0.5); opacity:0; }
+      to { transform: scale(1); opacity:1; }
+    }
+    .t-2    { background:#1a3a4a; color:#9ff5ff; }
+    .t-4    { background:#1a4a3a; color:#9fffc4; }
+    .t-8    { background:#3a4a1a; color:#d4ff9f; }
+    .t-16   { background:#4a3a1a; color:#ffd49f; }
+    .t-32   { background:#4a1a1a; color:#ff9f9f; }
+    .t-64   { background:#4a1a3a; color:#ff9fd4; }
+    .t-128  { background:#3a1a4a; color:#c49fff; }
+    .t-256  { background:#1a1a4a; color:#9f9fff; }
+    .t-512  { background:#1a3a4a; color:#9ff5ff; font-size:clamp(0.9rem,3.5vw,1.4rem); }
+    .t-1024 { background:#0a2a3a; color:#00f5ff; font-size:clamp(0.75rem,3vw,1.1rem); }
+    .t-2048 { background:#2a0a4a; color:#ffd60a; font-size:clamp(0.75rem,3vw,1.1rem);
+              box-shadow: 0 0 20px rgba(255,214,10,0.7); animation: winGlow 1s ease infinite; }
+    @keyframes winGlow { 0%,100%{box-shadow:0 0 20px rgba(255,214,10,0.7)} 50%{box-shadow:0 0 40px rgba(255,214,10,1)} }
+  </style>
+</head>
+<body class="game-page">
+  <nav class="game-nav">
+    <a href="../../index.html" class="btn-back">← Back to Hub</a>
+    <span class="game-nav-title">🔢 2048</span>
+    <div class="score-panel">
+      <div class="score-box">
+        <div class="score-label">Score</div>
+        <div class="score-value" id="score">0</div>
+      </div>
+      <div class="score-box">
+        <div class="score-label">Best</div>
+        <div class="score-value" id="best">0</div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="game-container">
+    <div class="board-2048" id="board"></div>
+
+    <div style="display:flex;gap:1rem;">
+      <button class="btn-action" id="newGameBtn">New Game</button>
+    </div>
+
+    <div class="how-to-play">
+      <strong>How to Play:</strong> Use <strong>Arrow Keys</strong> or swipe to slide tiles.
+      Merge tiles with the same number to reach <strong>2048</strong>!
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

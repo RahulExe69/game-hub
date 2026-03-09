@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>❌ Tic-Tac-Toe – Game Hub</title>
+  <link rel="stylesheet" href="../../css/style.css"/>
+  <style>
+    .ttt-board {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      width: min(300px, 80vw);
+    }
+    .ttt-cell {
+      aspect-ratio: 1;
+      background: var(--bg-card);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      font-size: clamp(2rem, 10vw, 3.5rem);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .ttt-cell:hover:not(.filled) {
+      border-color: var(--neon-purple);
+      background: var(--bg-card-hover);
+      box-shadow: 0 0 15px rgba(157,78,221,0.3);
+    }
+    .ttt-cell.X { color: var(--neon-cyan); border-color: var(--neon-cyan); }
+    .ttt-cell.O { color: var(--neon-pink); border-color: var(--neon-pink); }
+    .ttt-cell.win { animation: winPulse 0.5s ease both; }
+    @keyframes winPulse {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+    .status-msg {
+      font-size: 1.2rem;
+      font-weight: 700;
+      min-height: 2rem;
+      text-align: center;
+    }
+    .tally {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+    .tally-box {
+      text-align: center;
+      min-width: 70px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+    }
+    .tally-box .score-value { font-size: 1.4rem; }
+  </style>
+</head>
+<body class="game-page">
+  <nav class="game-nav">
+    <a href="../../index.html" class="btn-back">← Back to Hub</a>
+    <span class="game-nav-title">❌ Tic-Tac-Toe</span>
+  </nav>
+
+  <div class="game-container">
+    <div class="tally">
+      <div class="tally-box">
+        <div class="score-label">You (X)</div>
+        <div class="score-value" id="playerScore" style="color:var(--neon-cyan)">0</div>
+      </div>
+      <div class="tally-box">
+        <div class="score-label">Draws</div>
+        <div class="score-value" id="drawScore" style="color:var(--neon-yellow)">0</div>
+      </div>
+      <div class="tally-box">
+        <div class="score-label">AI (O)</div>
+        <div class="score-value" id="aiScore" style="color:var(--neon-pink)">0</div>
+      </div>
+    </div>
+
+    <div class="status-msg" id="statusMsg">Your turn (X)</div>
+
+    <div class="ttt-board" id="board"></div>
+
+    <div style="display:flex;gap:1rem;">
+      <button class="btn-action" id="restartBtn">New Game</button>
+    </div>
+
+    <div class="how-to-play">
+      <strong>How to Play:</strong> You are <strong style="color:var(--neon-cyan)">X</strong>.
+      Click a cell to place your mark. Beat the AI by getting 3 in a row!
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

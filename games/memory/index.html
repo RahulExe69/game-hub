@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🃏 Memory Match – Game Hub</title>
+  <link rel="stylesheet" href="../../css/style.css"/>
+  <style>
+    .memory-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      width: min(360px, 90vw);
+    }
+    .mem-card {
+      aspect-ratio: 1;
+      perspective: 600px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .mem-card-inner {
+      width: 100%; height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.4s ease;
+      border-radius: 10px;
+    }
+    .mem-card.flipped .mem-card-inner { transform: rotateY(180deg); }
+    .mem-card.matched .mem-card-inner { transform: rotateY(180deg); }
+    .mem-card-front, .mem-card-back {
+      position: absolute; inset: 0;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .mem-card-front {
+      background: linear-gradient(135deg, #1a1a45, #2a1050);
+      border: 2px solid var(--border);
+      font-size: 1.5rem;
+      color: var(--neon-purple);
+    }
+    .mem-card-back {
+      background: var(--bg-card);
+      border: 2px solid var(--neon-purple);
+      transform: rotateY(180deg);
+      font-size: clamp(1.4rem, 5vw, 2rem);
+    }
+    .mem-card.matched .mem-card-back {
+      border-color: var(--neon-green);
+      background: rgba(57,255,20,0.1);
+      box-shadow: 0 0 12px rgba(57,255,20,0.4);
+    }
+    .mem-stats { display:flex; gap:1.5rem; flex-wrap:wrap; justify-content:center; }
+    .mem-stat { text-align:center; min-width:70px; }
+    .mem-stat .score-value { font-size:1.5rem; }
+  </style>
+</head>
+<body class="game-page">
+  <nav class="game-nav">
+    <a href="../../index.html" class="btn-back">← Back to Hub</a>
+    <span class="game-nav-title">🃏 Memory Match</span>
+  </nav>
+
+  <div class="game-container">
+    <div class="mem-stats">
+      <div class="mem-stat score-box">
+        <div class="score-label">Moves</div>
+        <div class="score-value" id="moves" style="color:var(--neon-yellow)">0</div>
+      </div>
+      <div class="mem-stat score-box">
+        <div class="score-label">Pairs</div>
+        <div class="score-value" id="pairs" style="color:var(--neon-green)">0/8</div>
+      </div>
+      <div class="mem-stat score-box">
+        <div class="score-label">Time</div>
+        <div class="score-value" id="timer" style="color:var(--neon-cyan)">0s</div>
+      </div>
+    </div>
+
+    <div class="memory-grid" id="memoryGrid"></div>
+
+    <div style="display:flex;gap:1rem;">
+      <button class="btn-action" id="newGameBtn">New Game</button>
+    </div>
+
+    <div class="how-to-play">
+      <strong>How to Play:</strong> Click cards to flip them. Find all
+      <strong>8 matching pairs</strong> with as few moves as possible. The timer is running!
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
