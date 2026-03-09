@@ -9,7 +9,7 @@
 
   let board, playerTurn, gameOver, scores;
 
-  const WINS = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+  const WINS = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]; // [a, b, c] = three board indices
 
   function init() {
     board = Array(9).fill('');
@@ -73,8 +73,8 @@
   }
 
   function checkWinner(b) {
-    for (const [a, c, d] of WINS) {
-      if (b[a] && b[a] === b[c] && b[a] === b[d]) return b[a];
+    for (const [i, j, k] of WINS) {
+      if (b[i] && b[i] === b[j] && b[i] === b[k]) return b[i];
     }
     if (b.every(v => v)) return 'draw';
     return null;
@@ -103,10 +103,10 @@
 
   function highlightWin(result) {
     if (result === 'draw') return;
-    for (const [a, c, d] of WINS) {
-      if (board[a] && board[a] === board[c] && board[a] === board[d]) {
+    for (const [i, j, k] of WINS) {
+      if (board[i] && board[i] === board[j] && board[i] === board[k]) {
         const cells = boardEl.children;
-        [a, c, d].forEach(i => cells[i].classList.add('win'));
+        [i, j, k].forEach(idx => cells[idx].classList.add('win'));
       }
     }
   }
