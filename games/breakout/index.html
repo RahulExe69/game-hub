@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🧱 Brick Breaker – Game Hub</title>
+  <link rel="stylesheet" href="../../css/style.css"/>
+</head>
+<body class="game-page">
+  <nav class="game-nav">
+    <a href="../../index.html" class="btn-back">← Back to Hub</a>
+    <span class="game-nav-title">🧱 Brick Breaker</span>
+    <div class="score-panel">
+      <div class="score-box">
+        <div class="score-label">Score</div>
+        <div class="score-value" id="score">0</div>
+      </div>
+      <div class="score-box">
+        <div class="score-label">Lives</div>
+        <div class="score-value" id="lives" style="color:var(--neon-pink)">❤️❤️❤️</div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="game-container">
+    <div class="canvas-wrapper" id="canvasWrapper">
+      <canvas id="gameCanvas" width="400" height="500"></canvas>
+      <div class="overlay" id="overlay">
+        <div class="overlay-title">🧱 Brick Breaker</div>
+        <div class="overlay-score" id="overlayMsg">Move mouse/touch to control paddle</div>
+        <button class="btn-action" id="startBtn">Start Game</button>
+      </div>
+    </div>
+
+    <div class="how-to-play">
+      <strong>How to Play:</strong> Move <strong>Mouse</strong> or <strong>Touch</strong>
+      to control the paddle. Break all the bricks! You have 3 lives.
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

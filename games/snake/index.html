@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🐍 Snake – Game Hub</title>
+  <link rel="stylesheet" href="../../css/style.css"/>
+  <style>
+    #gameCanvas { border-radius: 4px; }
+    .speed-bar { width:100%; max-width:360px; display:flex; align-items:center; gap:0.75rem; }
+    .speed-bar label { font-size:.8rem; color:var(--text-muted); white-space:nowrap; }
+    .speed-dots { display:flex; gap:4px; }
+    .dot { width:10px; height:10px; border-radius:50%; background:var(--border); transition:.3s; }
+    .dot.active { background:var(--neon-green); box-shadow:0 0 6px var(--neon-green); }
+  </style>
+</head>
+<body class="game-page">
+  <nav class="game-nav">
+    <a href="../../index.html" class="btn-back">← Back to Hub</a>
+    <span class="game-nav-title">🐍 Snake</span>
+    <div class="score-panel">
+      <div class="score-box">
+        <div class="score-label">Score</div>
+        <div class="score-value" id="score">0</div>
+      </div>
+      <div class="score-box">
+        <div class="score-label">Best</div>
+        <div class="score-value" id="best">0</div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="game-container">
+    <div class="canvas-wrapper" id="canvasWrapper">
+      <canvas id="gameCanvas" width="360" height="360"></canvas>
+      <div class="overlay" id="overlay">
+        <div class="overlay-title" id="overlayTitle">🐍 Snake</div>
+        <div class="overlay-score" id="overlayScore">Arrow keys or swipe to move</div>
+        <button class="btn-action" id="startBtn">Start Game</button>
+      </div>
+    </div>
+
+    <div class="speed-bar">
+      <label>Speed:</label>
+      <div class="speed-dots" id="speedDots">
+        <div class="dot active" id="d0"></div>
+        <div class="dot" id="d1"></div>
+        <div class="dot" id="d2"></div>
+        <div class="dot" id="d3"></div>
+        <div class="dot" id="d4"></div>
+      </div>
+    </div>
+
+    <!-- Mobile D-Pad -->
+    <div class="mobile-controls">
+      <div class="dpad">
+        <div class="dpad-btn empty"></div>
+        <button class="dpad-btn" id="dUp">▲</button>
+        <div class="dpad-btn empty"></div>
+        <button class="dpad-btn" id="dLeft">◀</button>
+        <div class="dpad-btn empty"></div>
+        <button class="dpad-btn" id="dRight">▶</button>
+        <div class="dpad-btn empty"></div>
+        <button class="dpad-btn" id="dDown">▼</button>
+        <div class="dpad-btn empty"></div>
+      </div>
+    </div>
+
+    <div class="how-to-play">
+      <strong>How to Play:</strong> Use <strong>Arrow Keys</strong> or swipe to move the snake.
+      Eat the 🍎 to grow and score points. Don't hit the walls or yourself!
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
